@@ -22,14 +22,14 @@ Commands are executed only on online devices, and results are collected for revi
 
 ## Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10 or higher
 - API credentials for HPE Aruba Networking Central (JSON or YAML format)
 
 ## Installation
 
 1. Clone the repository and navigate to the project folder
 ```bash
-git clone -b "v2(pre-release)" https://github.com/aruba/central-python-workflows.git
+git clone -b v2 https://github.com/aruba/central-python-workflows.git
 cd cutover-validation
 ```
 
@@ -44,7 +44,7 @@ source env/bin/activate  # On Windows use: env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-This workflow is tested with the `pycentral` SDK version `2.0a14`. Please check compatibility before executing on newer versions as there may be changes.
+This workflow is tested with the `pycentral` SDK version `2.0a23`. Please check compatibility before executing on newer versions as there may be changes.
 
 ## Configuration
 

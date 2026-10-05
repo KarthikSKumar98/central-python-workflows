@@ -19,69 +19,22 @@ Each folder represents a self-contained workflow. Inside each, you’ll find:
 > 
 >We will make every effort to keep these workflows up to date. If you encounter any issues or inconsistencies, please open an issue in this repository.
 
-### [Onboarding](/device-onboarding/)
-This script automates the complete onboarding journey of factory-default devices in HPE Aruba Networking Central. It takes devices from an **unassigned state in GreenLake Platform (GLP)** through both GLP onboarding and Central onboarding to make them ready for configuration via **New Central**.
-
-**Phase 1: GLP (GreenLake Platform) Onboarding** *(Optional)*
-- Application assignment to HPE Aruba Networking Central instances
-- Subscription license assignment using subscription keys
-
-**Phase 2: Central Onboarding** *(Required)*
-- Site creation and device assignment
-- Device persona configuration
-- Device group management and assignment
-- Provisioning verification
-
-### [Ping and iPerf Troubleshooting Workflow](/troubleshooting-workflow/)
-This script automates network troubleshooting tasks using the new HPE Aruba Networking Central APIs. The workflow performs comprehensive connectivity testing by executing ping tests and iPerf bandwidth tests on gateway devices to validate network performance and connectivity.
-
-### [Tunnelled SSID Workflow](/tunneled-ssid-overlays/)
-This workflow can:
-- Creates config profiles such as roles and policies in New Central
-- Creates SSID configurations with associated roles
-- Modify policy group and create overlay WLAN profiles
-- Assigns these configurations to the appropriate scopes (global or group)
-- Associates devices with sites based on the inventory configuration
-
-### [Open SSID Workflow](/open-ssid-overlay/)
-This Python script automates the configuration of an **Open SSID (Opportunistic Wireless Encryption)** in New HPE Aruba Networking Central. The script performs the following actions:
-- Creates configuration profiles such as roles and policies in New Central.
-- Modifies policy groups and associates policies with them.
-- Creates Open SSID configurations with associated roles.
-- Assigns these configurations to the appropriate scopes (site or global).
-- Moves devices into site with Open SSID configuration to inherit profile.
-
-### [WPA3 PSK Workflow](/wpa3-psk-overlay/)
-This Python script automates the configuration of a WPA3 PSK (Wi-Fi Protected Access 3 - Pre-Shared Key) in New HPE Aruba Networking Central. It creates configuration profiles such as roles and policies in New Central, modifies policy groups and associates policies with them, and generates WPA3 PSK configurations with associated roles. Additionally, it assigns these configurations to the appropriate scopes, whether site or global, and moves devices into the site with the WPA3 PSK configuration to ensure they inherit the profile.
-
-### [Hierarchy Visualizer](/hierarchy-visualizer/)
-This workflow visualizes the Hierarchy of Central using APIs. It discovers hierarchy relationships and required configuration attributes (such as `scope_id` and `persona`) and presents them in both tabular and visual formats. The workflow generates a terminal summary, a CSV report, and hierarchy diagrams that represent the hierarchy structure.
-
-### [Client Disconnection](/client-disconnect/)
-This workflow is used to disconnect client devices from a network managed by Central. It verifies that the clients are active, matches them by MAC address, and then sends a disconnect request to the device that the client is connected to. This is useful when you want to quickly remove clients from accessing your network.
-
-### [Rename Hostnames](/rename-hostnames/)
-This script can help you rename the hostname of devices. You can provide a CSV file containing device serial numbers and their corresponding new hostnames. The script reads this file and updates each device's hostname in Central accordingly, automating the renaming process at scale.
-
-### [Profile Operations](/profile-operations/)
-This workflow showcases how to connect to Central and demonstrates the two main approaches to profile operations with Pycentral:
-- Connecting to Central with the Pycentral base object
-- Individual Profile Operations
-- Bulk Profile Operations
-
-### [Device Metrics Export](/device-metrics-export)
-This workflow retrieves comprehensive device information from both HPE Aruba Networking Central and GreenLake Platform (GLP) APIs. It consolidates device attributes, monitoring data, connectivity status, and subscription details into a single CSV file for easy analysis and reporting.
-
-### [Cutover Validation](/cutover-validation)
-This script automates the execution of predefined troubleshooting show commands across multiple Aruba Central–managed devices. It is designed for cutover, migration, and validation workflows, allowing operators to run consistent checks at scale without logging into individual devices. Results are collected only from online devices and exported in HTML, Markdown, or JSON for easy review and sharing.
+- **[Onboarding](/device-onboarding/)** — Takes factory-default devices from unassigned in GLP through application and subscription assignment, then site, persona, and group setup in New Central.
+- **[Ping and iPerf Troubleshooting Workflow](/troubleshooting-workflow/)** — Runs ping and iPerf bandwidth tests from gateways to check connectivity and network performance.
+- **[Tunnelled SSID Workflow](/tunneled-ssid-overlay/)** — Creates the roles, policies, overlay WLAN profiles, and tunnelled SSID, assigns them to scopes, and moves devices into sites.
+- **[Open SSID Workflow](/open-ssid-overlay/)** — Creates the roles, policies, and an Open (OWE) SSID, assigns them to scopes, and moves devices into the site so they inherit it.
+- **[WPA3 PSK Workflow](/wpa3-psk-overlay/)** — Creates the roles, policies, and a WPA3 PSK SSID, assigns them to scopes, and moves devices into the site so they inherit it.
+- **[Hierarchy Visualizer](/hierarchy-visualizer/)** — Maps the Central hierarchy and its scope attributes into a terminal summary, a CSV report, and diagrams.
+- **[Client Disconnection](/client-disconnect/)** — Finds active clients by MAC address and disconnects them from the device they are connected to.
+- **[Rename Hostnames](/rename-hostnames/)** — Renames devices in bulk from a CSV of serial numbers and new hostnames.
+- **[Profile Operations](/profile-operations/)** — Shows how to connect with the pycentral base object and run individual and bulk profile operations.
+- **[Device Metrics Export](/device-metrics-export)** — Combines device attributes, monitoring data, connectivity, and subscription details from Central and GLP into one CSV.
+- **[Cutover Validation](/cutover-validation)** — Runs a set of troubleshooting show commands across online devices and exports the results as HTML, Markdown, or JSON.
+- **[MSP Workbench](/msp-workbench/)** — A guided web app and CLI for MSPs, using one MSP credential. Onboard: create tenants, add devices to the MSP inventory, and assign devices and subscriptions to tenants. Observe: monitor tenants and track subscription burndown.
 
 ## HPE Greenlake Platform Workflows
 
-### [Onboarding](/glp-device-onboarding/)
-This workflow can automate the following onboarding steps:
-- Assign Devices to Application
-- Apply Subscription to Devices
-Along with the Python script, there is also a [Postman collection](/glp-device-onboarding/Postman-Collection/) for the same workflow which is available in the folder.
+- **[Onboarding](/glp-device-onboarding/)** — Assigns devices to an application and applies subscriptions to them, with a matching [Postman collection](/glp-device-onboarding/Postman-Collection/).
 
 ## Classic Central Workflows
 - [Device Provisioning](/Classic-Central/device_provisioning/)
